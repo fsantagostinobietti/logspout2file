@@ -12,5 +12,5 @@ RUN apk update && \
     
 
 
-ENTRYPOINT exec unbuffer curl --silent --no-buffer http://${LHOST}:${LPORT:-8000}/logs | myRotateLog.sh /outdir/logfile 102400
+ENTRYPOINT exec unbuffer curl --silent --no-buffer http://${LHOST}:${LPORT:-80}/logs | myRotateLog.sh /outdir/logfile 102400
 
