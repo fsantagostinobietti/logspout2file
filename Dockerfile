@@ -10,7 +10,5 @@ RUN apk update && \
     apk add curl && \
     apk add expect
     
-
-
-ENTRYPOINT exec unbuffer curl --silent --no-buffer http://${LHOST}:${LPORT:-80}/logs | myRotateLog.sh /outdir/logfile 102400
+ENTRYPOINT exec unbuffer curl --silent --no-buffer http://${LHOST}:${LPORT:-80}/logs | myRotateLog.sh /outdir/${FFILENAME:-logfile} ${FFILESIZE:-10485760}
 
